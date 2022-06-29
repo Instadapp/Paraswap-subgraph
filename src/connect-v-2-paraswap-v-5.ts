@@ -26,26 +26,9 @@ export function handleSwap(call: SwapCall): void {
   swapData.inputs = inputs.id;
   swapData.events = events.id;
 
-
-  //   let context = new DataSourceContext();
-  //   context.setString("dsa", event.params.account.toHexString());
-  //   InstaAccountABI.createWithContext(event.params.account, context);
-
-  //   let contract = InstaIndex.bind(event.address);
-  //   let instaAccount = InstaAccount.bind(event.params.account);
-  //   let instaList = InstaList.bind(contract.list());
-  //   let accountId = instaList.accountID(event.params.account);
-
-  //   let dsa = createOrLoadSwapData(event.params.account.toHexString());
-
-  //   dsa.creator = event.params.owner;
-  //   dsa.address = event.params.account;
-  //   dsa.version = instaAccount.version();
-  //   dsa.accountID = accountId;
-
-    swapData.save();
-    inputs.save();
-    events.save();
+  swapData.save();
+  inputs.save();
+  events.save();
 }
 
 export function createOrLoadSwapData(id: string): SwapData {
