@@ -1,5 +1,23 @@
-type ExampleEntity @entity {
+type SwapData @entity(immutable: true) {
   id: ID!
-  block: Bytes!
-  count: BigInt!
+  txnFrom: Bytes!
+  callFrom: Bytes!
+  inputs: Input!
+  events: Event!
+}
+
+type Input @entity {
+  id: ID!
+  buyToken: Bytes!
+  sellToken: Bytes!
+  sellAmt: BigInt!
+  unitAmt: BigInt!
+  callData: Bytes!
+  setId: BigInt!
+}
+
+type Event @entity {
+  id: ID!
+  eventName: String!
+  eventParams: Bytes!
 }
